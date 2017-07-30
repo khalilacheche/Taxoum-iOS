@@ -1,0 +1,6 @@
+framework module Pods_Taxoum {
+  umbrella header "Pods-Taxoum-umbrella.h"
+
+  export *
+  module * { export * }
+}
