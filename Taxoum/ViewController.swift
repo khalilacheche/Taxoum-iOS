@@ -26,30 +26,25 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     @IBOutlet weak var destinationLocation: UITextField!
 
     
-    
+    var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
     var locationSelected = Location.startLocation
-    
     var locationStart = CLLocation()
     var locationEnd = CLLocation()
     let pricebykm = 750
     let pricebyseconds = 30/9
     var stm:String="Start location"
     var dtm:String="End location"
-    var distanceinKM = 0
-    var timeInSeconds = 0
     var mylocation :CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
-        
         //Your map initiation code
         let camera = GMSCameraPosition.camera(withLatitude: -7.9293122, longitude: 112.5879156, zoom: 15.0)
         
@@ -59,7 +54,12 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         self.googleMaps.settings.myLocationButton = true
         self.googleMaps.settings.compassButton = true
         self.googleMaps.settings.zoomGestures = true
-        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAutocomplete" {
+            let AutocompleteController : CustomAutocomplete = segue.destination as! CustomAutocomplete
+            AutocompleteController.delegate = self
+        }
     }
     
     // MARK: function for create a marker pin on map
@@ -81,7 +81,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         
         let location = locations.last
         mylocation=location!
-        SelectStartLocation(place: location!, PlaceName: "Your Position")
+        SelectStartLocation(place: location!, PlaceName: "My Position")
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
         
         self.googleMaps?.animate(to: camera)
@@ -111,6 +111,17 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print("COORDINATE \(coordinate)") // when you tapped coordinate
     }
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        if isSelectingOnMap{
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            if locationSelected == .startLocation {
+                SelectStartLocation(place: location, PlaceName: String(coordinate.latitude) + ", " + String(coordinate.longitude))
+            }else if locationSelected == .destinationLocation {
+                SelectEndLocation(place: location, PlaceName: String(coordinate.latitude) + ", " + String(coordinate.longitude))
+            }
+        isSelectingOnMap=false
+        }
+    }
     
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         googleMaps.isMyLocationEnabled = true
@@ -133,6 +144,29 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         dtm = PlaceName
         destinationLocation.text = PlaceName
     }
+    func CalculateTaxiFare(distanceinKM: Int , timeinSeconds: Int){
+        var TaxifarebyDist:Int=0
+        var TaxifarebyTime:Int=0
+        //Getting local hour
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        print(hour)
+
+        if hour>=21 || hour<=5 {
+            TaxifarebyDist = (450 + distanceinKM/1000 * self.pricebykm) + (450 + distanceinKM/1000 * self.pricebykm ) / 2
+            TaxifarebyTime = (450 + timeinSeconds * self.pricebyseconds) + (450 + timeinSeconds * self.pricebyseconds) / 2
+        }else if hour<21 || hour>5 {
+                TaxifarebyDist = 450 + distanceinKM/1000 * self.pricebykm
+                TaxifarebyTime = 450 + timeinSeconds * self.pricebyseconds
+        }
+
+        print("Taxi fare by distance: ",TaxifarebyDist)
+        print("Taxi fare by time: ",TaxifarebyTime)
+        let finalTaxiFare = (TaxifarebyTime  +  TaxifarebyDist ) / 2
+        print ("Final Taxi Fare  ",finalTaxiFare)
+        self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare)
+    }
     func drawPath(startLocation: CLLocation, endLocation: CLLocation)
     {
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
@@ -150,17 +184,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
             
             let json = JSON(data: response.data!)
             let routes = json["routes"].arrayValue
-            self.distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
-            self.timeInSeconds = json["routes"][0]["legs"][0]["duration"]["value"].intValue
-            print(self.distanceinKM)
-            print(self.timeInSeconds)
-            let TaxifarebyDist = 450 + self.distanceinKM/1000 * self.pricebykm
-            let TaxifarebyTime = 450 + self.timeInSeconds * self.pricebyseconds
-            print("Taxi fare by distance: ",TaxifarebyDist)
-            print("Taxi fare by time: ",TaxifarebyTime)
-            let finalTaxiFare = (TaxifarebyTime  +  TaxifarebyDist ) / 2
-            print ("Final Taxi Fare  ",finalTaxiFare)
-            self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare)
+            let distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
+            let timeInSeconds = json["routes"][0]["legs"][0]["duration"]["value"].intValue
+            print(distanceinKM)
+            print(timeInSeconds)
+            self.CalculateTaxiFare(distanceinKM: distanceinKM, timeinSeconds: timeInSeconds)
             // print route using Polyline
             for route in routes
             {
@@ -178,34 +206,17 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     
     // MARK: when start location tap, this will open the search location
     @IBAction func openStartLocation(_ sender: UIButton) {
-        
-        let autoCompleteController = GMSAutocompleteViewController()
-        autoCompleteController.delegate = self
-        
-        // selected location
         locationSelected = .startLocation
-        
-        // Change text color
-        UISearchBar.appearance().setTextColor(color: UIColor.black)
         self.locationManager.stopUpdatingLocation()
-        
-        self.present(autoCompleteController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toAutocomplete", sender: nil)
     }
     
     // MARK: when destination location tap, this will open the search location
     @IBAction func openDestinationLocation(_ sender: UIButton) {
-        
-        let autoCompleteController = GMSAutocompleteViewController()
-        autoCompleteController.delegate = self
-        
-        // selected location
         locationSelected = .destinationLocation
         
-        // Change text color
-        UISearchBar.appearance().setTextColor(color: UIColor.black)
         self.locationManager.stopUpdatingLocation()
-        
-        self.present(autoCompleteController, animated: true, completion: nil)
+        performSegue(withIdentifier: "toAutocomplete", sender: nil)
     }
     
     @IBAction func SwitchPlaces(_ sender: Any) {
@@ -220,10 +231,10 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         
     }
     @IBAction func selectMyPositionAtStart(_ sender: Any) {
-    SelectStartLocation(place: mylocation, PlaceName: "My Position")
+        SelectStartLocation(place: mylocation, PlaceName: "My Position")
     }
     @IBAction func selectMyPositionAtDestination(_ sender: Any) {
-    SelectEndLocation(place: mylocation, PlaceName: "My Position")
+        SelectEndLocation(place: mylocation, PlaceName: "My Position")
     }
     
     // MARK: SHOW DIRECTION WITH BUTTON
@@ -236,72 +247,34 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     }
     
 }
-
-// MARK: - GMS Auto Complete Delegate, for autocomplete search location
-extension ViewController: GMSAutocompleteViewControllerDelegate {
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print("Error \(error)")
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
-        // Change map location
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 16.0
-        )
-        
-        
-        // set coordinate to text
+extension ViewController: CustomAutocompleteDelegate {
+    func userDidSelectPlaceOnMap() {
+        isSelectingOnMap=true
         if locationSelected == .startLocation {
-            let location =  CLLocation(latitude: place.coordinate.latitude,longitude: place.coordinate.longitude)
-            SelectStartLocation(place: location, PlaceName: place.name)
-        } else {
-            let location =  CLLocation(latitude: place.coordinate.latitude,longitude: place.coordinate.longitude)
-            SelectEndLocation(place: location, PlaceName: place.name)        }
-        /*CLGeocoder().reverseGeocodeLocation(locationStart, completionHandler: {(placemarks, error) -> Void in
-            print(self.locationStart)
-            
-            if error != nil {
-                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-                return
-            }
-            
-            if (placemarks?.count)! > 0 {
-                let pm = placemarks?[0]
-                self.stm = (pm?.name)!
-                
-            }
-            else {
-                print("Problem with the data received from geocoder")
-            }
-        })*/
-        
-        self.googleMaps.camera = camera
-        self.dismiss(animated: true, completion: nil)
-        
+          startLocation.text = "Select Your Start Location on the Map"
+        }else if locationSelected == .destinationLocation {
+          destinationLocation.text = "Select Your End Location on the Map"
+        }
     }
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        self.dismiss(animated: true, completion: nil)
+    func userDidSelectMyPosition() {
+        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: mylocation.coordinate.latitude, longitude: mylocation.coordinate.longitude, zoom: 16.0)
+        if locationSelected == .startLocation {
+            SelectStartLocation(place: mylocation, PlaceName: "My Position")
+        }else if locationSelected == .destinationLocation {
+            SelectEndLocation(place: mylocation, PlaceName: "My Position")
+        }
     }
-    
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    func userDidSelectPlace(Cooridnate: CLLocationCoordinate2D, Name: String) {
+        let location = CLLocation(latitude: Cooridnate.latitude, longitude: Cooridnate.longitude)
+        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
+        if locationSelected == .startLocation {
+            SelectStartLocation(place: location, PlaceName: Name)
+        }else if locationSelected == .destinationLocation {
+            SelectEndLocation(place: location, PlaceName: Name)
+        }
     }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    func failAutocomplete() {
+        print("Error")
     }
-    
-}
-
-public extension UISearchBar {
-    
-    public func setTextColor(color: UIColor) {
-        let svs = subviews.flatMap { $0.subviews }
-        guard let tf = (svs.filter { $0 is UITextField }).first as? UITextField else { return }
-        tf.textColor = color
-    }
-    
 }
 
