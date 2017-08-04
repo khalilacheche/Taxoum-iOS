@@ -18,6 +18,7 @@
 		FA2356D31F0E53600053EE5F /* TaxoumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356D21F0E53600053EE5F /* TaxoumTests.swift */; };
 		FA2356DE1F0E53600053EE5F /* TaxoumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */; };
 		FA25236B1F33EF3300D1D9E5 /* CustomAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */; };
+		FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E97211F33F52300C506ED /* TableViewCell.swift */; };
 		FAF3D7E01F2E657C00B08881 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF3D7DF1F2E657C00B08881 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxoumUITests.swift; sourceTree = "<group>"; };
 		FA2356DF1F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAutocomplete.swift; sourceTree = "<group>"; };
+		FA6E97211F33F52300C506ED /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FAF3D7DF1F2E657C00B08881 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */,
 				FA2356BF1F0E53600053EE5F /* ViewController.swift */,
 				FA2356C11F0E53600053EE5F /* Main.storyboard */,
+				FA6E97211F33F52300C506ED /* TableViewCell.swift */,
 				FA2356C41F0E53600053EE5F /* Assets.xcassets */,
 				FA2356C61F0E53600053EE5F /* LaunchScreen.storyboard */,
 				FA2356C91F0E53600053EE5F /* Info.plist */,
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */,
+				FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */,
 				FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */,
 				FA25236B1F33EF3300D1D9E5 /* CustomAutocomplete.swift in Sources */,
 			);

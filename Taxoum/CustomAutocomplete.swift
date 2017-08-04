@@ -17,10 +17,11 @@ protocol CustomAutocompleteDelegate {
     func failAutocomplete()
 }
 
-class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate{
+class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate{
     
+    @IBOutlet weak var Search: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var searchBar: UISearchBar!
     var fetcher : GMSAutocompleteFetcher = GMSAutocompleteFetcher(bounds:nil,filter:nil)
     var delegate:CustomAutocompleteDelegate? = nil
     public var results = [Place]()
@@ -28,6 +29,7 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
     let SelectOnMap:Place = Place(Name: "Select On Map", Locality: nil , ID: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
+        Search.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         let neBoundsCorner = CLLocationCoordinate2D(latitude: 37.365733,
                                                     longitude: 11.852234)
         let swBoundsCorner = CLLocationCoordinate2D(latitude: 30.046239,
@@ -36,7 +38,7 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
                                          coordinate: swBoundsCorner)
         fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: nil)
         fetcher.delegate = self
-        searchBar.delegate=self
+       // Search.delegate=self
         results.append(myPostion)
         results.append(SelectOnMap)
         
@@ -44,15 +46,16 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetcher.sourceTextHasChanged(searchText)
+    func textFieldDidChange(_ textField: UITextField) {
+        fetcher.sourceTextHasChanged(textField.text)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {
         
@@ -62,9 +65,9 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text=results[indexPath.row].Name
-        cell.detailTextLabel?.text=results[indexPath.row].Locality
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.Title.text=results[indexPath.row].Name
+        cell.Subtitle.text=results[indexPath.row].Locality
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,6 +122,8 @@ extension CustomAutocomplete: GMSAutocompleteFetcherDelegate {
         for prediction in predictions {
             let obj:Place=Place(Name:prediction.attributedPrimaryText.string,Locality:prediction.attributedSecondaryText?.string,ID:prediction.placeID)
             results.append(obj)
+            //TO DO : Add an image next to the prediction
+            //print(prediction.types[0])
         }
      tableView.reloadData()
     }
