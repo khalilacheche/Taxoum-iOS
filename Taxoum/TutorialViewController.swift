@@ -13,14 +13,21 @@ class TutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let animationView = LOTAnimationView(name: "TaxiAnimation")
-        self.view.addSubview(animationView)
-        animationView.contentMode = .scaleAspectFill
-        animationView.frame =  CGRect(x: 0 , y: 180, width: self.view.frame.size.width,height: 215)
-        animationView.loopAnimation = true
-        animationView.play{ (finished) in
-            // Do Something
-        }
+        let taxiAnimationView = LOTAnimationView(name: "TaxiAnimation")
+        self.view.addSubview(taxiAnimationView)
+        taxiAnimationView.contentMode = .scaleAspectFill
+        taxiAnimationView.frame =  CGRect(x: 0 , y: 140, width: self.view.frame.size.width,height: 215)
+        taxiAnimationView.loopAnimation = true
+        taxiAnimationView.play()
+        
+        let swipeAnimationView = LOTAnimationView(name: "swipe_up")
+        self.view.addSubview(swipeAnimationView)
+        swipeAnimationView.contentMode = .scaleAspectFill
+        swipeAnimationView.frame =  CGRect(x: 145 , y: 450, width: 90,height: 45)
+        swipeAnimationView.transform = CGAffineTransform(rotationAngle: 1.5708);
+        swipeAnimationView.loopAnimation = true
+        swipeAnimationView.play()
+
         // Do any additional setup after loading the view.
     }
 
