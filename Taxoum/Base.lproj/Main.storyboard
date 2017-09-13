@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nj7-ej-Trf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6Eb-0c-AOo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tutorial-->
+        <!--Welcome-->
         <scene sceneID="pDj-Yd-xjc">
             <objects>
-                <viewController title="Tutorial" id="Nj7-ej-Trf" customClass="TutorialViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeVC" title="Welcome" id="Nj7-ej-Trf" customClass="TutorialViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NlO-Ri-6Na"/>
                         <viewControllerLayoutGuide type="bottom" id="TDU-D2-bFw"/>
@@ -57,10 +57,18 @@
             </objects>
             <point key="canvasLocation" x="74.400000000000006" y="34.632683658170919"/>
         </scene>
-        <!--View Controller-->
+        <!--Root View Controller-->
+        <scene sceneID="onk-Oh-wYd">
+            <objects>
+                <pageViewController storyboardIdentifier="root" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="vertical" spineLocation="none" id="6Eb-0c-AOo" customClass="RootViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWN-PU-aa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="-723"/>
+        </scene>
+        <!--LocationPicker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationPickerVC" title="LocationPicker" id="BYZ-38-t0r" customClass="ViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -234,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mrb-rA-8TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="36"/>
+            <point key="canvasLocation" x="2044" y="240"/>
         </scene>
     </scenes>
     <resources>
