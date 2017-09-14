@@ -19,5 +19,83 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Taxoum/AppDelegate.swift"
+            timestampString = "527096578.332188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Taxoum.AppDelegate.__deallocating_deinit"
+                  moduleName = "Taxoum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amirbraham/Desktop/Taxoum-iOS/Taxoum/AppDelegate.swift"
+                  timestampString = "527096704.55973"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Taxoum.AppDelegate.init () -&gt; Taxoum.AppDelegate"
+                  moduleName = "Taxoum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amirbraham/Desktop/Taxoum-iOS/Taxoum/AppDelegate.swift"
+                  timestampString = "527096704.562741"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Taxoum.AppDelegate.__allocating_init () -&gt; Taxoum.AppDelegate"
+                  moduleName = "Taxoum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amirbraham/Desktop/Taxoum-iOS/Taxoum/AppDelegate.swift"
+                  timestampString = "527096704.566044"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "Taxoum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amirbraham/Desktop/Taxoum-iOS/Taxoum/AppDelegate.swift"
+                  timestampString = "527096704.569085"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
