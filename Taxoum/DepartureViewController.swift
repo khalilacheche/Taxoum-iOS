@@ -23,12 +23,15 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
     var locationEnd = CLLocation()
     let pricebykm = 750
     let pricebyseconds = 30/9
-    var FoundLocation = false
+
     var stm:String="Start location"
     var dtm:String="End location"
     var mylocation :CLLocationCoordinate2D!
     @IBOutlet weak var startLocation: UITextField!
-
+    @IBAction func getCurrentLocation(_ sender: UIButton) {
+        startLocation.text = "locations = \(mylocation.latitude) \(mylocation.longitude)"
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.locationManager.requestAlwaysAuthorization()
@@ -36,12 +39,12 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
-        if (CLLocationManager.locationServicesEnabled()) {
+        if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-                // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,37 +60,19 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
         locationAnimationView.contentMode = .scaleAspectFill
         locationAnimationView.frame =  CGRect(x: 87 , y: 364, width: 200,height: 180)
         locationAnimationView.loopAnimation = true
-        locationAnimationView.isUserInteractionEnabled = true
-        addToggleRecognizer(locationAnimationView)
         locationAnimationView.play()
-        
     }
     
-
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        mylocation = locValue;
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
     
     func SelectStartLocation(place: CLLocation, PlaceName: String){
         locationStart = place
         stm = PlaceName
         startLocation.text=PlaceName
-    }
-    
-    func addToggleRecognizer(_ animationView: LOTAnimationView) {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(getCurrentLocation(recognizer:)))
-        animationView.addGestureRecognizer(tapRecognizer)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if(FoundLocation == false) {
-            let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-            mylocation = locValue;
-            print("locations = \(locValue.latitude) \(locValue.longitude)")
-            FoundLocation = true
-
-        }
-           }
-    func getCurrentLocation(recognizer: UITapGestureRecognizer) {
-        startLocation.text = "locations = \(mylocation.latitude) \(mylocation.longitude)"
-        
     }
     
     
