@@ -19,8 +19,8 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
     var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
     var locationSelected = Location.startLocation
-    var locationStart = CLLocation()
-    var locationEnd = CLLocation()
+    var locationStart = CLLocationCoordinate2D()
+    var locationEnd = CLLocationCoordinate2D()
     let pricebykm = 750
     let pricebyseconds = 30/9
 
@@ -61,18 +61,26 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
         locationAnimationView.frame =  CGRect(x: 87 , y: 364, width: 200,height: 180)
         locationAnimationView.loopAnimation = true
         locationAnimationView.play()
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.checkAction(sender:)))
+       locationAnimationView.addGestureRecognizer(gesture)
     }
     
+   
+    
+    func checkAction(sender : UITapGestureRecognizer) {
+        // Do what you want
+        print("hello")
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         mylocation = locValue;
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
-    func SelectStartLocation(place: CLLocation, PlaceName: String){
+    func SelectStartLocation(place: CLLocationCoordinate2D, PlaceName: String){
         locationStart = place
         stm = PlaceName
-        startLocation.text=PlaceName
+        startLocation.text = stm
     }
     
     
@@ -89,9 +97,8 @@ extension DepartureViewController: CustomAutocompleteDelegate {
         startLocation.text = "locations = \(mylocation.latitude) \(mylocation.longitude)";
     }
     func userDidSelectPlace(Cooridnate: CLLocationCoordinate2D, Name: String) {
-        let location = CLLocation(latitude: Cooridnate.latitude, longitude: Cooridnate.longitude)
         if locationSelected == .startLocation {
-            SelectStartLocation(place: location, PlaceName: Name)
+            SelectStartLocation(place: Cooridnate, PlaceName: Name)
         }
     }
     func failAutocomplete() {

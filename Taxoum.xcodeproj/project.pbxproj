@@ -60,6 +60,7 @@
 		A2EA9FD41F6AD63F0086A767 /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
 		A2EA9FD61F6AD65A0086A767 /* DepartureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureViewController.swift; sourceTree = "<group>"; };
 		A2EA9FD81F6ADD710086A767 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		A2FD61141F93945400C3D058 /* next.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = next.json; sourceTree = "<group>"; };
 		CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxoumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taxoum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +161,7 @@
 				A2C111151F680546006DEB5E /* TaxiAnimation.json */,
 				A2EA9FD41F6AD63F0086A767 /* location.json */,
 				A27467711F682B69002A22FC /* swipe_up.json */,
+				A2FD61141F93945400C3D058 /* next.json */,
 				FA2356BD1F0E53600053EE5F /* AppDelegate.swift */,
 				FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */,
 				FA2356BF1F0E53600053EE5F /* ViewController.swift */,

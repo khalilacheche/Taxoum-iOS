@@ -92,6 +92,7 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
                     }
                 location=(place?.coordinate)!
                 locationName=(place?.name)!
+                    print(location)
                 self.delegate?.userDidSelectPlace(Cooridnate: location, Name: locationName)
                 self.dismiss(animated: true, completion: nil)
                 })
