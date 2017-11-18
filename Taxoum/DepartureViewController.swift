@@ -34,16 +34,7 @@ class DepartureViewController: UIViewController , GMSMapViewDelegate ,  CLLocati
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+    
         // Do any additional setup after loading the view.
     }
 

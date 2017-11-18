@@ -18,7 +18,7 @@ enum Location {
     case destinationLocation
 }
 
-class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManagerDelegate {
+class ViewController: UIViewController , GMSMapViewDelegate, CLLocationManagerDelegate  {
     
     @IBOutlet weak var TaxiFare: UILabel!
     @IBOutlet weak var googleMaps: GMSMapView!
@@ -29,21 +29,17 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
     var locationSelected = Location.startLocation
-    var locationStart = CLLocation()
-    var locationEnd = CLLocation()
+    var locationStart :CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var locationEnd :CLLocationCoordinate2D = CLLocationCoordinate2D()
     let pricebykm = 750
     let pricebyseconds = 30/9
     var stm:String="Start location"
     var dtm:String="End location"
-    var mylocation :CLLocation!
+    var mylocation :CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
         //Your map initiation code
         let camera = GMSCameraPosition.camera(withLatitude: -7.9293122, longitude: 112.5879156, zoom: 15.0)
@@ -54,6 +50,17 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         self.googleMaps.settings.myLocationButton = true
         self.googleMaps.settings.compassButton = true
         self.googleMaps.settings.zoomGestures = true
+        
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAutocomplete" {
@@ -78,11 +85,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let location = locations.last
-        mylocation=location!
-        SelectStartLocation(place: location!, PlaceName: "My Position")
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        mylocation = locValue
+        print(mylocation)
+        SelectStartLocation(place: mylocation,PlaceName: "My Position")
+        let camera = GMSCameraPosition.camera(withLatitude: (mylocation.latitude), longitude: (mylocation.longitude), zoom: 17.0)
         
         self.googleMaps?.animate(to: camera)
         self.locationManager.stopUpdatingLocation()
@@ -113,7 +120,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     }
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         if isSelectingOnMap{
-            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            let location = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
             if locationSelected == .startLocation {
                 SelectStartLocation(place: location, PlaceName: String(coordinate.latitude) + ", " + String(coordinate.longitude))
             }else if locationSelected == .destinationLocation {
@@ -132,15 +139,15 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     
     
     //MARK: - this is function for create direction path, from start location to desination location
-    func SelectStartLocation(place: CLLocation, PlaceName: String){
+    func SelectStartLocation(place: CLLocationCoordinate2D, PlaceName: String){
         locationStart = place
-        createMarker(titleMarker: PlaceName,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        createMarker(titleMarker: PlaceName,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: place.latitude, longitude: place.longitude)
         stm = PlaceName
         startLocation.text=PlaceName
     }
-    func SelectEndLocation(place: CLLocation, PlaceName: String){
+    func SelectEndLocation(place: CLLocationCoordinate2D, PlaceName: String){
         locationEnd = place
-        createMarker(titleMarker: PlaceName, /*iconMarker: #imageLiteral(resourceName: "mapspin"), */latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        createMarker(titleMarker: PlaceName, /*iconMarker: #imageLiteral(resourceName: "mapspin"), */latitude: place.latitude, longitude: place.longitude)
         dtm = PlaceName
         destinationLocation.text = PlaceName
     }
@@ -167,10 +174,10 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         print ("Final Taxi Fare  ",finalTaxiFare)
         self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare)
     }
-    func drawPath(startLocation: CLLocation, endLocation: CLLocation)
+    func drawPath(startLocation: CLLocationCoordinate2D, endLocation: CLLocationCoordinate2D)
     {
-        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
-        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+        let origin = "\(startLocation.latitude),\(startLocation.longitude)"
+        let destination = "\(endLocation.latitude),\(endLocation.longitude)"
         
         
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
@@ -242,8 +249,8 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         // when button direction tapped, must call drawpath func
         googleMaps.clear()
         self.drawPath(startLocation: locationStart, endLocation: locationEnd)
-        createMarker(titleMarker: stm, /*iconMarker: #imageLiteral(resourceName: "mapspin") ,*/ latitude: (locationStart.coordinate.latitude), longitude: (locationStart.coordinate.longitude))
-        createMarker(titleMarker: dtm,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: locationEnd.coordinate.latitude, longitude: locationEnd.coordinate.longitude)
+        createMarker(titleMarker: stm, /*iconMarker: #imageLiteral(resourceName: "mapspin") ,*/ latitude: (locationStart.latitude), longitude: (locationStart.longitude))
+        createMarker(titleMarker: dtm,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: locationEnd.latitude, longitude: locationEnd.longitude)
     }
     
 }
@@ -257,7 +264,7 @@ extension ViewController: CustomAutocompleteDelegate {
         }
     }
     func userDidSelectMyPosition() {
-        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: mylocation.coordinate.latitude, longitude: mylocation.coordinate.longitude, zoom: 16.0)
+        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: mylocation.latitude, longitude: mylocation.longitude, zoom: 16.0)
         if locationSelected == .startLocation {
             SelectStartLocation(place: mylocation, PlaceName: "My Position")
         }else if locationSelected == .destinationLocation {
@@ -265,8 +272,8 @@ extension ViewController: CustomAutocompleteDelegate {
         }
     }
     func userDidSelectPlace(Cooridnate: CLLocationCoordinate2D, Name: String) {
-        let location = CLLocation(latitude: Cooridnate.latitude, longitude: Cooridnate.longitude)
-        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 16.0)
+        let location = CLLocationCoordinate2D(latitude: Cooridnate.latitude, longitude: Cooridnate.longitude)
+        self.googleMaps.camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 16.0)
         if locationSelected == .startLocation {
             SelectStartLocation(place: location, PlaceName: Name)
         }else if locationSelected == .destinationLocation {
