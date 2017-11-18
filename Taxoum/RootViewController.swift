@@ -13,10 +13,9 @@ class RootViewController: UIPageViewController , UIPageViewControllerDataSource 
     var viewControllersList : [UIViewController] =  {
         let sb = UIStoryboard(name : "Main", bundle: nil)
         let welcomeVC = sb.instantiateViewController(withIdentifier: "welcomeVC")
-        let DepartureVC = sb.instantiateViewController(withIdentifier: "departureVC")
-         let DestinationVC = sb.instantiateViewController(withIdentifier: "destinationVC")
+        let DepartureDestinationVC = sb.instantiateViewController(withIdentifier: "DepartureDestinationVC")
         
-        return [welcomeVC,DepartureVC,DestinationVC]
+        return [welcomeVC,DepartureDestinationVC]
     }()
    
     override func viewDidLoad() {
