@@ -46,7 +46,7 @@ class CustomAutocomplete: UIViewController,GMSMapViewDelegate,CLLocationManagerD
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    func textFieldDidChange(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         fetcher.sourceTextHasChanged(textField.text)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

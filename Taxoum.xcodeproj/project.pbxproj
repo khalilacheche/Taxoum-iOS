@@ -11,11 +11,8 @@
 		7659F846DEB025D54BE67B77 /* Pods_Taxoum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */; };
 		8AF061C7A5D054AD900AB043 /* Pods_TaxoumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B785DEBCC2EE02F8D8A064 /* Pods_TaxoumUITests.framework */; };
 		A232E2961F68A28C00C262D2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A232E2951F68A28C00C262D2 /* RootViewController.swift */; };
-		A27467721F682B69002A22FC /* swipe_up.json in Resources */ = {isa = PBXBuildFile; fileRef = A27467711F682B69002A22FC /* swipe_up.json */; };
 		A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C111151F680546006DEB5E /* TaxiAnimation.json */; };
-		A2C111181F68059B006DEB5E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* TutorialViewController.swift */; };
-		A2EA9FD51F6AD63F0086A767 /* location.json in Resources */ = {isa = PBXBuildFile; fileRef = A2EA9FD41F6AD63F0086A767 /* location.json */; };
-		A2EA9FD71F6AD65A0086A767 /* DepartureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA9FD61F6AD65A0086A767 /* DepartureViewController.swift */; };
+		A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* HomeViewController.swift */; };
 		A2EA9FD91F6ADD710086A767 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA9FD81F6ADD710086A767 /* DestinationViewController.swift */; };
 		FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BD1F0E53600053EE5F /* AppDelegate.swift */; };
 		FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BF1F0E53600053EE5F /* ViewController.swift */; };
@@ -54,11 +51,8 @@
 		5BEA2E74EA4C23633265F181 /* Pods-TaxoumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E71AC964C5E04FF90845ABE /* Pods-TaxoumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumTests/Pods-TaxoumTests.release.xcconfig"; sourceTree = "<group>"; };
 		A232E2951F68A28C00C262D2 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		A27467711F682B69002A22FC /* swipe_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swipe_up.json; sourceTree = "<group>"; };
 		A2C111151F680546006DEB5E /* TaxiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaxiAnimation.json; sourceTree = "<group>"; };
-		A2C111171F68059B006DEB5E /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
-		A2EA9FD41F6AD63F0086A767 /* location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = location.json; sourceTree = "<group>"; };
-		A2EA9FD61F6AD65A0086A767 /* DepartureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureViewController.swift; sourceTree = "<group>"; };
+		A2C111171F68059B006DEB5E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A2EA9FD81F6ADD710086A767 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		A2FD61141F93945400C3D058 /* next.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = next.json; sourceTree = "<group>"; };
 		CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,8 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				A2C111151F680546006DEB5E /* TaxiAnimation.json */,
-				A2EA9FD41F6AD63F0086A767 /* location.json */,
-				A27467711F682B69002A22FC /* swipe_up.json */,
 				A2FD61141F93945400C3D058 /* next.json */,
 				FA2356BD1F0E53600053EE5F /* AppDelegate.swift */,
 				FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */,
@@ -171,9 +163,8 @@
 				FA2356C61F0E53600053EE5F /* LaunchScreen.storyboard */,
 				FA2356C91F0E53600053EE5F /* Info.plist */,
 				FAF3D7DF1F2E657C00B08881 /* Media.xcassets */,
-				A2C111171F68059B006DEB5E /* TutorialViewController.swift */,
+				A2C111171F68059B006DEB5E /* HomeViewController.swift */,
 				A232E2951F68A28C00C262D2 /* RootViewController.swift */,
-				A2EA9FD61F6AD65A0086A767 /* DepartureViewController.swift */,
 				A2EA9FD81F6ADD710086A767 /* DestinationViewController.swift */,
 			);
 			path = Taxoum;
@@ -315,12 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF3D7E01F2E657C00B08881 /* Media.xcassets in Resources */,
-				A2EA9FD51F6AD63F0086A767 /* location.json in Resources */,
 				FA2356C81F0E53600053EE5F /* LaunchScreen.storyboard in Resources */,
 				FA2356C51F0E53600053EE5F /* Assets.xcassets in Resources */,
 				A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */,
 				FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */,
-				A27467721F682B69002A22FC /* swipe_up.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,12 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2EA9FD71F6AD65A0086A767 /* DepartureViewController.swift in Sources */,
 				FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */,
 				A232E2961F68A28C00C262D2 /* RootViewController.swift in Sources */,
 				A2EA9FD91F6ADD710086A767 /* DestinationViewController.swift in Sources */,
 				FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */,
-				A2C111181F68059B006DEB5E /* TutorialViewController.swift in Sources */,
+				A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */,
 				FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */,
 				FA25236B1F33EF3300D1D9E5 /* CustomAutocomplete.swift in Sources */,
 			);

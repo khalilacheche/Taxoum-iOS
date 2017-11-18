@@ -85,7 +85,7 @@ class ViewController: UIViewController , GMSMapViewDelegate, CLLocationManagerDe
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        let locValue:CLLocationCoordinate2D = (manager.location?.coordinate)!
         mylocation = locValue
         print(mylocation)
         SelectStartLocation(place: mylocation,PlaceName: "My Position")

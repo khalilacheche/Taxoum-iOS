@@ -14,20 +14,15 @@ class RootViewController: UIPageViewController , UIPageViewControllerDataSource 
         let sb = UIStoryboard(name : "Main", bundle: nil)
         let welcomeVC = sb.instantiateViewController(withIdentifier: "welcomeVC")
         let DepartureDestinationVC = sb.instantiateViewController(withIdentifier: "DepartureDestinationVC")
-        
         return [welcomeVC,DepartureDestinationVC]
     }()
    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-        
-        
         if let firstVC = viewControllersList.first {
             self.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
-    
-    
     }
 
     

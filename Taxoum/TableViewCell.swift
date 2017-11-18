@@ -12,7 +12,4 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var Title: UILabel!
     @IBOutlet weak var Subtitle: UILabel!
-
-
-
 }
