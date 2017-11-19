@@ -25,6 +25,7 @@ class ViewController: UIViewController , GMSMapViewDelegate, CLLocationManagerDe
     @IBOutlet weak var startLocation: UITextField!
     @IBOutlet weak var destinationLocation: UITextField!
 
+    @IBOutlet weak var resultView: UIView!
     
     var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
@@ -61,6 +62,26 @@ class ViewController: UIViewController , GMSMapViewDelegate, CLLocationManagerDe
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        
+        
+        let gesture = UIPanGestureRecognizer(target: self,  action: #selector(wasDragged))
+        resultView.addGestureRecognizer(gesture)
+        resultView.isUserInteractionEnabled = true
+    }
+    
+    func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == UIGestureRecognizerState.began || gestureRecognizer.state == UIGestureRecognizerState.changed {
+            let translation = gestureRecognizer.translation(in: self.view)
+            print(gestureRecognizer.view!.center.y)
+            if(gestureRecognizer.view!.center.y < 800 && gestureRecognizer.view!.center.y > 435.5) {
+                gestureRecognizer.view!.center = CGPoint(x:gestureRecognizer.view!.center.x, y: gestureRecognizer.view!.center.y + translation.y)
+            }else {
+                gestureRecognizer.view!.center = CGPoint(x:gestureRecognizer.view!.center.x,y: 554)
+            }
+            
+            gestureRecognizer.setTranslation(CGPoint(x:0,y:0), in: self.view)
+        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAutocomplete" {
@@ -69,7 +90,7 @@ class ViewController: UIViewController , GMSMapViewDelegate, CLLocationManagerDe
         }
     }
     
-    // MARK: function for create a marker pin on map
+    // MARK: function for create a  marker pin on map
     func createMarker(titleMarker: String, /*iconMarker: UIImage,*/ latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
