@@ -24,7 +24,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     @IBOutlet weak var googleMaps: GMSMapView!
     @IBOutlet weak var startLocation: UITextField!
     @IBOutlet weak var destinationLocation: UITextField!
-
+    @IBOutlet weak var subView: UIView!
     
     var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
@@ -36,9 +36,17 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     var stm:String="Start location"
     var dtm:String="End location"
     var mylocation :CLLocation!
+    var panelOriginalCenter: CGPoint!
+    var panelDownOffset: CGFloat!
+    var panelUp: CGPoint!
+    var panelDown: CGPoint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        panelDownOffset = 72
+        panelUp = subView.center
+        panelDown = CGPoint(x: subView.center.x ,y: subView.center.y + panelDownOffset)
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -54,6 +62,13 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         self.googleMaps.settings.myLocationButton = true
         self.googleMaps.settings.compassButton = true
         self.googleMaps.settings.zoomGestures = true
+        do {
+            // Set the map style by passing a valid JSON string.
+            self.googleMaps.mapStyle = try GMSMapStyle(jsonString: "[{\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#7c93a3\"},{\"lightness\":\"-10\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#a0a4a5\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#62838e\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#dde3e3\"}]},{\"featureType\":\"landscape.man_made\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#3f4a51\"},{\"weight\":\"0.30\"}]},{\"featureType\":\"poi\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"poi.attraction\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi.business\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.government\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.park\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi.place_of_worship\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.school\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.sports_complex\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"stylers\":[{\"saturation\":\"-100\"},{\"visibility\":\"on\"}]},{\"featureType\":\"road\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.icon\",\"stylers\":[{\"saturation\":\"-7\"},{\"invert_lightness\":true},{\"lightness\":\"3\"},{\"gamma\":\"1.80\"},{\"weight\":\"0.01\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#bbcacf\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#bbcacf\"},{\"lightness\":\"0\"},{\"weight\":\"0.50\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.highway.controlled_access\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#ffffff\"}]},{\"featureType\":\"road.highway.controlled_access\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#a9b4b8\"}]},{\"featureType\":\"transit\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#a3c7df\"}]}]")
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        self.showPartPanel()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAutocomplete" {
@@ -67,6 +82,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
         marker.title = titleMarker
+        marker.icon = GMSMarker.markerImage(with: .blue)
         //marker.icon = iconMarker
         marker.map = googleMaps
     }
@@ -99,6 +115,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         googleMaps.isMyLocationEnabled = true
         
         if (gesture) {
+            self.showPartPanel()
             mapView.selectedMarker = nil
         }
     }
@@ -113,8 +130,22 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     }
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         if isSelectingOnMap{
+        let url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+String(coordinate.latitude)+","+String(coordinate.longitude)+"&key=AIzaSyAbeuFxWsVTrADl6YJQQGuHmlarwP-gaf8"
+            Alamofire.request(url).responseJSON { response in
+                
+                //print(response.request as Any)  // original URL request
+                //print(response.response as Any) // HTTP URL response
+                //print(response.data as Any)     // server data
+                //print(response.result as Any)   // result of response serialization
+                
+                //let json = JSON(data: response.data!)
+                //let address = json["results"][0]["formatted_address"]
+                //print(address)
+                
+            }
             let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
             if locationSelected == .startLocation {
+
                 SelectStartLocation(place: location, PlaceName: String(coordinate.latitude) + ", " + String(coordinate.longitude))
             }else if locationSelected == .destinationLocation {
                 SelectEndLocation(place: location, PlaceName: String(coordinate.latitude) + ", " + String(coordinate.longitude))
@@ -165,14 +196,14 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         print("Taxi fare by time: ",TaxifarebyTime)
         let finalTaxiFare = (TaxifarebyTime  +  TaxifarebyDist ) / 2
         print ("Final Taxi Fare  ",finalTaxiFare)
-        self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare)
+        self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare) + " TND"
     }
     func drawPath(startLocation: CLLocation, endLocation: CLLocation)
     {
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
         
-        
+
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
         //Requesting the routes
         Alamofire.request(url).responseJSON { response in
@@ -189,6 +220,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
             print(distanceinKM)
             print(timeInSeconds)
             self.CalculateTaxiFare(distanceinKM: distanceinKM, timeinSeconds: timeInSeconds)
+            self.showFullPanel()
             // print route using Polyline
             for route in routes
             {
@@ -197,10 +229,45 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
                 let path = GMSPath.init(fromEncodedPath: points!)
                 let polyline = GMSPolyline.init(path: path)
                 polyline.strokeWidth = 4
-                polyline.strokeColor = UIColor.red
+                polyline.strokeColor = UIColor.cyan
                 polyline.map = self.googleMaps
             }
             
+        }
+    }
+    func showFullPanel(){
+        UIView.animate(withDuration: 0.3) {
+            self.subView.center = self.panelUp
+        }
+
+    }
+    func showPartPanel(){
+        UIView.animate(withDuration: 0.3) {
+            self.subView.center = self.panelDown
+        }
+        
+    }
+    @IBAction func didSwipe(_ sender: UIPanGestureRecognizer) {
+        let velocity = sender.velocity(in: view)
+        let translation = sender.translation(in: view)
+        if sender.state == .began {
+            panelOriginalCenter = subView.center
+            
+        } else if sender.state == .changed {
+            subView.center = CGPoint(x: panelOriginalCenter.x, y: panelOriginalCenter.y + translation.y)
+            if subView.center.y < panelUp.y {
+                subView.center.y = panelUp.y
+            }
+            if subView.center.y > panelDown.y {
+                subView.center.y = panelDown.y
+            }
+            
+        } else if sender.state == .ended {
+            if velocity.y > 0 {
+                self.showPartPanel()
+            } else {
+                self.showFullPanel()
+            }
         }
     }
     

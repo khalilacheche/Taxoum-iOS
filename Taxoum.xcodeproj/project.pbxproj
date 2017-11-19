@@ -12,16 +12,18 @@
 		8AF061C7A5D054AD900AB043 /* Pods_TaxoumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B785DEBCC2EE02F8D8A064 /* Pods_TaxoumUITests.framework */; };
 		A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C111151F680546006DEB5E /* TaxiAnimation.json */; };
 		A2C111181F68059B006DEB5E /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* TutorialViewController.swift */; };
+		FA2161591F7FDC480054D016 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2161581F7FDC480054D016 /* testViewController.swift */; };
 		FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BD1F0E53600053EE5F /* AppDelegate.swift */; };
 		FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BF1F0E53600053EE5F /* ViewController.swift */; };
 		FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
-		FA2356C51F0E53600053EE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C41F0E53600053EE5F /* Assets.xcassets */; };
 		FA2356C81F0E53600053EE5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C61F0E53600053EE5F /* LaunchScreen.storyboard */; };
 		FA2356D31F0E53600053EE5F /* TaxoumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356D21F0E53600053EE5F /* TaxoumTests.swift */; };
 		FA2356DE1F0E53600053EE5F /* TaxoumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */; };
 		FA25236B1F33EF3300D1D9E5 /* CustomAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */; };
+		FA2ADD491FC1D8F40097415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
+		FA2ADD4A1FC1D8F50097415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
+		FA2ADD4B1FC1D9620097415F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2ADD481FC1D3280097415F /* Assets.xcassets */; };
 		FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E97211F33F52300C506ED /* TableViewCell.swift */; };
-		FAF3D7E01F2E657C00B08881 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF3D7DF1F2E657C00B08881 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +55,11 @@
 		CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxoumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taxoum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA2161581F7FDC480054D016 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		FA2356BA1F0E535F0053EE5F /* Taxoum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxoum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2356BD1F0E53600053EE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA2356BF1F0E53600053EE5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA2356C21F0E53600053EE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FA2356C41F0E53600053EE5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2356C71F0E53600053EE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2356C91F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2356CE1F0E53600053EE5F /* TaxoumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxoumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +69,8 @@
 		FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxoumUITests.swift; sourceTree = "<group>"; };
 		FA2356DF1F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAutocomplete.swift; sourceTree = "<group>"; };
+		FA2ADD481FC1D3280097415F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6E97211F33F52300C506ED /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		FAF3D7DF1F2E657C00B08881 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,11 +155,11 @@
 				FA2356BF1F0E53600053EE5F /* ViewController.swift */,
 				FA2356C11F0E53600053EE5F /* Main.storyboard */,
 				FA6E97211F33F52300C506ED /* TableViewCell.swift */,
-				FA2356C41F0E53600053EE5F /* Assets.xcassets */,
 				FA2356C61F0E53600053EE5F /* LaunchScreen.storyboard */,
 				FA2356C91F0E53600053EE5F /* Info.plist */,
-				FAF3D7DF1F2E657C00B08881 /* Media.xcassets */,
+				FA2ADD481FC1D3280097415F /* Assets.xcassets */,
 				A2C111171F68059B006DEB5E /* TutorialViewController.swift */,
+				FA37532D1F7FF76100FD0756 /* A2B */,
 			);
 			path = Taxoum;
 			sourceTree = "<group>";
@@ -178,6 +180,14 @@
 				FA2356DF1F0E53600053EE5F /* Info.plist */,
 			);
 			path = TaxoumUITests;
+			sourceTree = "<group>";
+		};
+		FA37532D1F7FF76100FD0756 /* A2B */ = {
+			isa = PBXGroup;
+			children = (
+				FA2161581F7FDC480054D016 /* testViewController.swift */,
+			);
+			path = A2B;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF3D7E01F2E657C00B08881 /* Media.xcassets in Resources */,
 				FA2356C81F0E53600053EE5F /* LaunchScreen.storyboard in Resources */,
-				FA2356C51F0E53600053EE5F /* Assets.xcassets in Resources */,
 				A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */,
+				FA2ADD4B1FC1D9620097415F /* Assets.xcassets in Resources */,
 				FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2ADD491FC1D8F40097415F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2ADD4A1FC1D8F50097415F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2161591F7FDC480054D016 /* testViewController.swift in Sources */,
 				FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */,
 				FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */,
 				A2C111181F68059B006DEB5E /* TutorialViewController.swift in Sources */,
