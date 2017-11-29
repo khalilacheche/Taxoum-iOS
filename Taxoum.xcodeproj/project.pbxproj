@@ -13,6 +13,7 @@
 		A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C111151F680546006DEB5E /* TaxiAnimation.json */; };
 		A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* HomeViewController.swift */; };
 		A2EE5A6B1FC2147A0098DD90 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE5A6A1FC2147A0098DD90 /* RootViewController.swift */; };
+		A2F267DD1FCF61B6001415F1 /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = A2F267DC1FCF61B6001415F1 /* favourite_app_icon.json */; };
 		FA2161591F7FDC480054D016 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2161581F7FDC480054D016 /* testViewController.swift */; };
 		FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BD1F0E53600053EE5F /* AppDelegate.swift */; };
 		FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BF1F0E53600053EE5F /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		A2C111151F680546006DEB5E /* TaxiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaxiAnimation.json; sourceTree = "<group>"; };
 		A2C111171F68059B006DEB5E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A2EE5A6A1FC2147A0098DD90 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A2F267DC1FCF61B6001415F1 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
 		CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxoumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taxoum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				A2C111151F680546006DEB5E /* TaxiAnimation.json */,
+				A2F267DC1FCF61B6001415F1 /* favourite_app_icon.json */,
 				FA2356BD1F0E53600053EE5F /* AppDelegate.swift */,
 				FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */,
 				FA2356BF1F0E53600053EE5F /* ViewController.swift */,
@@ -314,6 +317,7 @@
 				A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */,
 				FA2ADD4B1FC1D9620097415F /* Assets.xcassets in Resources */,
 				FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */,
+				A2F267DD1FCF61B6001415F1 /* favourite_app_icon.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

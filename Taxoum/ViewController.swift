@@ -26,6 +26,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     @IBOutlet weak var destinationLocation: UITextField!
     @IBOutlet weak var subView: UIView!
     
+    @IBOutlet weak var RatingSlider: UISlider!
     var isSelectingOnMap:Bool = false
     var locationManager = CLLocationManager()
     var locationSelected = Location.startLocation
@@ -42,10 +43,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     var panelDown: CGPoint!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         panelDownOffset = 72
-        panelUp = subView.center
+        panelUp = CGPoint(x:subView.center.x,y:300)
         panelDown = CGPoint(x: subView.center.x ,y: subView.center.y + panelDownOffset)
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -269,6 +271,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
                 self.showFullPanel()
             }
         }
+    }
+    
+    @IBAction func RatingValueChanged(_ sender: UISlider) {
+        print(Int(sender.value))
+    
     }
     
     // MARK: when start location tap, this will open the search location

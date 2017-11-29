@@ -91,7 +91,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXU-8p-Rsn">
-                                <rect key="frame" x="0.0" y="449" width="375" height="363"/>
+                                <rect key="frame" x="0.0" y="444" width="375" height="348"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Rectangle 2" translatesAutoresizingMaskIntoConstraints="NO" id="bOu-b1-UZT">
@@ -166,6 +166,37 @@
                                         <color key="textColor" red="0.50656875609999996" green="0.85096175159999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJV-84-NUZ">
+                                        <rect key="frame" x="75" y="231" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="star"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-92-UG6">
+                                        <rect key="frame" x="133" y="231" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="star"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ1-pY-CeC">
+                                        <rect key="frame" x="191" y="231" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="star"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yr-Wx-X6G">
+                                        <rect key="frame" x="249" y="231" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button" image="star"/>
+                                    </button>
+                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="4.4000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ZKW-ks-8Ur">
+                                        <rect key="frame" x="39" y="242" width="272" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="RatingValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1iH-M8-r3N"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <connections>
@@ -177,6 +208,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GUN-20-hl5"/>
                     <connections>
+                        <outlet property="RatingSlider" destination="ZKW-ks-8Ur" id="Oqi-H7-lWR"/>
                         <outlet property="TaxiFare" destination="kyV-ra-XdZ" id="XUO-7Y-4xm"/>
                         <outlet property="destinationLocation" destination="g9X-E2-0Ys" id="0zf-5O-aNv"/>
                         <outlet property="googleMaps" destination="gQp-Jy-R6s" id="OdJ-D0-91h"/>
@@ -294,6 +326,7 @@
         <image name="ArrowRight_L" width="852" height="291"/>
         <image name="Rectangle 2" width="375" height="483"/>
         <image name="blue" width="1680" height="1050"/>
+        <image name="star" width="256" height="256"/>
         <image name="switchbutton" width="170" height="364"/>
     </resources>
 </document>
