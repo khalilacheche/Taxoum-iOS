@@ -13,6 +13,7 @@ target 'Taxoum' do
   pod 'GooglePlacesAPI'
   pod 'SwiftyJSON'
   pod 'lottie-ios'
+  pod 'NotificationBannerSwift'
  target 'TaxoumTests' do
     inherit! :search_paths
     # Pods for testing

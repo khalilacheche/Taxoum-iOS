@@ -47,7 +47,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     override func viewDidLoad() {
         super.viewDidLoad()
         panelDownOffset = 72
-        panelUp = CGPoint(x:subView.center.x,y:300)
+        panelUp = CGPoint(x:subView.center.x,y:667)
         panelDown = CGPoint(x: subView.center.x ,y: subView.center.y + panelDownOffset)
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -65,8 +65,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         self.googleMaps.settings.compassButton = true
         self.googleMaps.settings.zoomGestures = true
         do {
-            // Set the map style by passing a valid JSON string.
-            self.googleMaps.mapStyle = try GMSMapStyle(jsonString: "[{\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#7c93a3\"},{\"lightness\":\"-10\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"administrative.country\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#a0a4a5\"}]},{\"featureType\":\"administrative.province\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#62838e\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#dde3e3\"}]},{\"featureType\":\"landscape.man_made\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#3f4a51\"},{\"weight\":\"0.30\"}]},{\"featureType\":\"poi\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"poi.attraction\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi.business\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.government\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.park\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi.place_of_worship\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.school\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.sports_complex\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"stylers\":[{\"saturation\":\"-100\"},{\"visibility\":\"on\"}]},{\"featureType\":\"road\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.icon\",\"stylers\":[{\"saturation\":\"-7\"},{\"invert_lightness\":true},{\"lightness\":\"3\"},{\"gamma\":\"1.80\"},{\"weight\":\"0.01\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#bbcacf\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#bbcacf\"},{\"lightness\":\"0\"},{\"weight\":\"0.50\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"road.highway.controlled_access\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#ffffff\"}]},{\"featureType\":\"road.highway.controlled_access\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"color\":\"#a9b4b8\"}]},{\"featureType\":\"transit\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"color\":\"#a3c7df\"}]}]")
+                // Set the map style by passing the URL of the local file. Make sure style.json is present in your project
+            if let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json") {
+                self.googleMaps.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+
+            }
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
@@ -84,7 +87,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
         marker.title = titleMarker
-        marker.icon = GMSMarker.markerImage(with: .blue)
+        marker.icon = GMSMarker.markerImage(with: .red)
         //marker.icon = iconMarker
         marker.map = googleMaps
     }

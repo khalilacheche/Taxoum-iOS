@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63375F10CBD06A6A1B3B4891BCF3395B"
+               BlueprintIdentifier = "DCF0F60381823315C46118DD32E088E8"
                BuildableName = "Pods_Taxoum.framework"
                BlueprintName = "Pods-Taxoum"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63375F10CBD06A6A1B3B4891BCF3395B"
+            BlueprintIdentifier = "DCF0F60381823315C46118DD32E088E8"
             BuildableName = "Pods_Taxoum.framework"
             BlueprintName = "Pods-Taxoum"
             ReferencedContainer = "container:Pods.xcodeproj">
