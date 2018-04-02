@@ -14,6 +14,8 @@ target 'Taxoum' do
   pod 'SwiftyJSON'
   pod 'lottie-ios'
   pod 'NotificationBannerSwift'
+  pod 'Presentr'
+
  target 'TaxoumTests' do
     inherit! :search_paths
     # Pods for testing

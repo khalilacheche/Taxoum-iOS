@@ -16,6 +16,7 @@ PODS:
     - MarqueeLabel/Swift
     - SnapKit (~> 3.2)
   - ObjectMapper (2.2.8)
+  - Presentr (1.2.3)
   - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
 
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - GooglePlacesAPI
   - lottie-ios
   - NotificationBannerSwift
+  - Presentr
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -36,9 +38,10 @@ SPEC CHECKSUMS:
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
   NotificationBannerSwift: c12fba5a18e839b350b1279d0eed1a5f910348c2
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
+  Presentr: a21c7bbb3532c8ff60320e235c0a4869e72f8885
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 4972515a62c415368e578fb7583029d42b92123f
+PODFILE CHECKSUM: 7092b2fcb3ac64a49a89afcf6c5d78105d613524
 
 COCOAPODS: 1.3.1
