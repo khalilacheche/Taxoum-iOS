@@ -273,7 +273,7 @@
 				TargetAttributes = {
 					FA2356B91F0E535F0053EE5F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 4WY2M6FY96;
+						DevelopmentTeam = 93Q877P892;
 						LastSwiftMigration = 0830;
 					};
 					FA2356CD1F0E53600053EE5F = {
@@ -637,7 +637,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4WY2M6FY96;
+				DEVELOPMENT_TEAM = 93Q877P892;
 				INFOPLIST_FILE = Taxoum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
@@ -652,7 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4WY2M6FY96;
+				DEVELOPMENT_TEAM = 93Q877P892;
 				INFOPLIST_FILE = Taxoum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
