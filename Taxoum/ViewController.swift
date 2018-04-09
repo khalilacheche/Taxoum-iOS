@@ -37,10 +37,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     var stm:String="Start location"
     var dtm:String="End location"
     var mylocation :CLLocation!
-
+    var Markers : [GMSMarker] = []
     
     
     override func viewDidLoad() {
+        print("start Location ",  startLocation)
         super.viewDidLoad()
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -77,6 +78,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     // MARK: function for create a marker pin on map
     func createMarker(titleMarker: String, /*iconMarker: UIImage,*/ latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let marker = GMSMarker()
+        Markers.append(marker)
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
         marker.title = titleMarker
         marker.icon = GMSMarker.markerImage(with: .red)
@@ -94,7 +96,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         
         let location = locations.last
         mylocation=location!
-        SelectStartLocation(place: location!, PlaceName: "My Position")
+        //SelectStartLocation(place: location!, PlaceName: "My Position")
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
         
         self.googleMaps?.animate(to: camera)
@@ -161,20 +163,14 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         createMarker(titleMarker: PlaceName,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
         stm = PlaceName
         startLocation.text=PlaceName
-        if(destinationLocation.text != nil) {
-            showDirection()
-
-        }
-        
+        showDirection()
     }
     func SelectEndLocation(place: CLLocation, PlaceName: String){
         locationEnd = place
         createMarker(titleMarker: PlaceName, /*iconMarker: #imageLiteral(resourceName: "mapspin"), */latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
         dtm = PlaceName
         destinationLocation.text = PlaceName
-        if(startLocation.text != nil) {
-            showDirection()
-        }
+        showDirection()
     }
     
     func CalculateTaxiFare(distanceinKM: Int , timeinSeconds: Int){
@@ -193,7 +189,10 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
                 TaxifarebyDist = 450 + distanceinKM/1000 * self.pricebykm
                 TaxifarebyTime = 450 + timeinSeconds * self.pricebyseconds
         }
-
+        
+        if(TaxifarebyDist == 0 ) {
+            self.showDirection()
+        }
         print("Taxi fare by distance: ",TaxifarebyDist)
         print("Taxi fare by time: ",TaxifarebyTime)
         let finalTaxiFare = (TaxifarebyTime  +  TaxifarebyDist ) / 2
@@ -205,6 +204,8 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
         
+        print("start location ",startLocation.coordinate)
+        print("end location ",endLocation.coordinate)
 
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
         //Requesting the routes
@@ -218,6 +219,16 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
             let json = JSON(data: response.data!)
             let routes = json["routes"].arrayValue
             let distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
+            var bounds = GMSCoordinateBounds()
+            for marker in self.Markers
+            {
+                bounds = bounds.includingCoordinate(marker.position)
+            }
+            let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
+            self.googleMaps.animate(with: update)
+            self.googleMaps.animate(toLocation: CLLocationCoordinate2D(latitude: (startLocation.coordinate.latitude + endLocation.coordinate.latitude ) / 2 , longitude:  (startLocation.coordinate.longitude + endLocation.coordinate.longitude ) / 2  ))
+           // self.googleMaps.animate(toZoom: Float(distanceinKM/1000) )
+
             let timeInSeconds = json["routes"][0]["legs"][0]["duration"]["value"].intValue
             print(distanceinKM)
             print(timeInSeconds)
@@ -230,11 +241,33 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
                 let path = GMSPath.init(fromEncodedPath: points!)
                 let polyline = GMSPolyline.init(path: path)
                 polyline.strokeWidth = 4
-                polyline.strokeColor = UIColor(hexString: "#ecf0f1")!
+                polyline.strokeColor =  self.hexStringToUIColor(hex: "#54a0ff")
                 polyline.map = self.googleMaps
             }
             
         }
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
     // MARK: when start location tap, this will open the search location
@@ -261,11 +294,14 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     
     // MARK: SHOW DIRECTION WITH BUTTON
     func showDirection() {
-        // when button direction tapped, must call drawpath func
-        googleMaps.clear()
-        self.drawPath(startLocation: locationStart, endLocation: locationEnd)
-        createMarker(titleMarker: stm, /*iconMarker: #imageLiteral(resourceName: "mapspin") ,*/ latitude: (locationStart.coordinate.latitude), longitude: (locationStart.coordinate.longitude))
-        createMarker(titleMarker: dtm,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: locationEnd.coordinate.latitude, longitude: locationEnd.coordinate.longitude)
+        if(locationStart.coordinate.latitude != 0 && locationEnd.coordinate.latitude != 0) {
+            // when button direction tapped, must call drawpath func
+            googleMaps.clear()
+            self.drawPath(startLocation: locationStart, endLocation: locationEnd)
+            createMarker(titleMarker: stm, /*iconMarker: #imageLiteral(resourceName: "mapspin") ,*/ latitude: (locationStart.coordinate.latitude), longitude: (locationStart.coordinate.longitude))
+            createMarker(titleMarker: dtm,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: locationEnd.coordinate.latitude, longitude: locationEnd.coordinate.longitude)
+        }
+
     }
     
 }
@@ -300,30 +336,20 @@ extension ViewController: CustomAutocompleteDelegate {
     }
 }
 extension UIColor {
-    public convenience init?(hexString: String) {
-        let r, g, b, a: CGFloat
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
         
-        if hexString.hasPrefix("#") {
-            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = String(hexString[start...])
-            
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-                    
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-        
-        return nil
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
     }
 }
 
