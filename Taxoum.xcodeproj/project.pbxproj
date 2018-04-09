@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50DD69C0323D493981D0931D /* Pods_TaxoumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */; };
 		7659F846DEB025D54BE67B77 /* Pods_Taxoum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */; };
-		8AF061C7A5D054AD900AB043 /* Pods_TaxoumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B785DEBCC2EE02F8D8A064 /* Pods_TaxoumUITests.framework */; };
 		A2B33F8E207BB6360003CBE2 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B33F8D207BB6360003CBE2 /* mapStyle.json */; };
 		A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C111151F680546006DEB5E /* TaxiAnimation.json */; };
 		A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* HomeViewController.swift */; };
@@ -20,46 +18,19 @@
 		FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356BF1F0E53600053EE5F /* ViewController.swift */; };
 		FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
 		FA2356C81F0E53600053EE5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C61F0E53600053EE5F /* LaunchScreen.storyboard */; };
-		FA2356D31F0E53600053EE5F /* TaxoumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356D21F0E53600053EE5F /* TaxoumTests.swift */; };
-		FA2356DE1F0E53600053EE5F /* TaxoumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */; };
 		FA25236B1F33EF3300D1D9E5 /* CustomAutocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */; };
-		FA2ADD491FC1D8F40097415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
-		FA2ADD4A1FC1D8F50097415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2356C11F0E53600053EE5F /* Main.storyboard */; };
 		FA2ADD4B1FC1D9620097415F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2ADD481FC1D3280097415F /* Assets.xcassets */; };
 		FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E97211F33F52300C506ED /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FA2356CF1F0E53600053EE5F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA2356B21F0E535F0053EE5F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA2356B91F0E535F0053EE5F;
-			remoteInfo = Taxoum;
-		};
-		FA2356DA1F0E53600053EE5F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA2356B21F0E535F0053EE5F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA2356B91F0E535F0053EE5F;
-			remoteInfo = Taxoum;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		1BE312D9562819E49991076B /* Pods-TaxoumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumTests/Pods-TaxoumTests.debug.xcconfig"; sourceTree = "<group>"; };
-		35B785DEBCC2EE02F8D8A064 /* Pods_TaxoumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxoumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD9DE7069A3B888584C695C /* Pods-Taxoum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.debug.xcconfig"; sourceTree = "<group>"; };
 		4298A99EEFBC001AB674DA5B /* Pods-Taxoum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.release.xcconfig"; sourceTree = "<group>"; };
-		5BEA2E74EA4C23633265F181 /* Pods-TaxoumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6E71AC964C5E04FF90845ABE /* Pods-TaxoumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumTests/Pods-TaxoumTests.release.xcconfig"; sourceTree = "<group>"; };
 		A2B33F8D207BB6360003CBE2 /* mapStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		A2C111151F680546006DEB5E /* TaxiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaxiAnimation.json; sourceTree = "<group>"; };
 		A2C111171F68059B006DEB5E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A2EE5A6A1FC2147A0098DD90 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A2F267DC1FCF61B6001415F1 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
-		CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxoumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxoumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taxoum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2161581F7FDC480054D016 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		FA2356BA1F0E535F0053EE5F /* Taxoum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxoum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,12 +39,6 @@
 		FA2356C21F0E53600053EE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA2356C71F0E53600053EE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2356C91F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA2356CE1F0E53600053EE5F /* TaxoumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxoumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA2356D21F0E53600053EE5F /* TaxoumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxoumTests.swift; sourceTree = "<group>"; };
-		FA2356D41F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA2356D91F0E53600053EE5F /* TaxoumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxoumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxoumUITests.swift; sourceTree = "<group>"; };
-		FA2356DF1F0E53600053EE5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA25236A1F33EF3300D1D9E5 /* CustomAutocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAutocomplete.swift; sourceTree = "<group>"; };
 		FA2ADD481FC1D3280097415F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA6E97211F33F52300C506ED /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -88,22 +53,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA2356CB1F0E53600053EE5F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50DD69C0323D493981D0931D /* Pods_TaxoumTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA2356D61F0E53600053EE5F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8AF061C7A5D054AD900AB043 /* Pods_TaxoumUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */,
-				E852F811004D478A3702ECEF /* Pods_TaxoumTests.framework */,
-				35B785DEBCC2EE02F8D8A064 /* Pods_TaxoumUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,10 +69,6 @@
 			children = (
 				3DD9DE7069A3B888584C695C /* Pods-Taxoum.debug.xcconfig */,
 				4298A99EEFBC001AB674DA5B /* Pods-Taxoum.release.xcconfig */,
-				1BE312D9562819E49991076B /* Pods-TaxoumTests.debug.xcconfig */,
-				6E71AC964C5E04FF90845ABE /* Pods-TaxoumTests.release.xcconfig */,
-				5BEA2E74EA4C23633265F181 /* Pods-TaxoumUITests.debug.xcconfig */,
-				CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -134,8 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				FA2356BC1F0E535F0053EE5F /* Taxoum */,
-				FA2356D11F0E53600053EE5F /* TaxoumTests */,
-				FA2356DC1F0E53600053EE5F /* TaxoumUITests */,
 				FA2356BB1F0E535F0053EE5F /* Products */,
 				29A7175671C3C3D776AC5A41 /* Pods */,
 				18DCA28B1DC783418BA90654 /* Frameworks */,
@@ -146,8 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				FA2356BA1F0E535F0053EE5F /* Taxoum.app */,
-				FA2356CE1F0E53600053EE5F /* TaxoumTests.xctest */,
-				FA2356D91F0E53600053EE5F /* TaxoumUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,24 +110,6 @@
 				A2B33F8D207BB6360003CBE2 /* mapStyle.json */,
 			);
 			path = Taxoum;
-			sourceTree = "<group>";
-		};
-		FA2356D11F0E53600053EE5F /* TaxoumTests */ = {
-			isa = PBXGroup;
-			children = (
-				FA2356D21F0E53600053EE5F /* TaxoumTests.swift */,
-				FA2356D41F0E53600053EE5F /* Info.plist */,
-			);
-			path = TaxoumTests;
-			sourceTree = "<group>";
-		};
-		FA2356DC1F0E53600053EE5F /* TaxoumUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FA2356DD1F0E53600053EE5F /* TaxoumUITests.swift */,
-				FA2356DF1F0E53600053EE5F /* Info.plist */,
-			);
-			path = TaxoumUITests;
 			sourceTree = "<group>";
 		};
 		FA37532D1F7FF76100FD0756 /* A2B */ = {
@@ -222,48 +143,6 @@
 			productReference = FA2356BA1F0E535F0053EE5F /* Taxoum.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA2356CD1F0E53600053EE5F /* TaxoumTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA2356E51F0E53600053EE5F /* Build configuration list for PBXNativeTarget "TaxoumTests" */;
-			buildPhases = (
-				458B16C4CBF6803294E9B046 /* [CP] Check Pods Manifest.lock */,
-				FA2356CA1F0E53600053EE5F /* Sources */,
-				FA2356CB1F0E53600053EE5F /* Frameworks */,
-				FA2356CC1F0E53600053EE5F /* Resources */,
-				6ABD34E6EA8E287C9B03FE45 /* [CP] Embed Pods Frameworks */,
-				323811D2C503053183F1FDAE /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA2356D01F0E53600053EE5F /* PBXTargetDependency */,
-			);
-			name = TaxoumTests;
-			productName = TaxoumTests;
-			productReference = FA2356CE1F0E53600053EE5F /* TaxoumTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FA2356D81F0E53600053EE5F /* TaxoumUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA2356E81F0E53600053EE5F /* Build configuration list for PBXNativeTarget "TaxoumUITests" */;
-			buildPhases = (
-				91CE65E4613946406AE67859 /* [CP] Check Pods Manifest.lock */,
-				FA2356D51F0E53600053EE5F /* Sources */,
-				FA2356D61F0E53600053EE5F /* Frameworks */,
-				FA2356D71F0E53600053EE5F /* Resources */,
-				360375D8B44A48D1683EE674 /* [CP] Embed Pods Frameworks */,
-				2C4CFE1224AA4B56B5374A36 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA2356DB1F0E53600053EE5F /* PBXTargetDependency */,
-			);
-			name = TaxoumUITests;
-			productName = TaxoumUITests;
-			productReference = FA2356D91F0E53600053EE5F /* TaxoumUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -271,23 +150,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = JKTronix;
 				TargetAttributes = {
 					FA2356B91F0E535F0053EE5F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 93Q877P892;
-						LastSwiftMigration = 0830;
-					};
-					FA2356CD1F0E53600053EE5F = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0830;
-						TestTargetID = FA2356B91F0E535F0053EE5F;
-					};
-					FA2356D81F0E53600053EE5F = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0830;
-						TestTargetID = FA2356B91F0E535F0053EE5F;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -305,8 +174,6 @@
 			projectRoot = "";
 			targets = (
 				FA2356B91F0E535F0053EE5F /* Taxoum */,
-				FA2356CD1F0E53600053EE5F /* TaxoumTests */,
-				FA2356D81F0E53600053EE5F /* TaxoumUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -322,22 +189,6 @@
 				FA2ADD4B1FC1D9620097415F /* Assets.xcassets in Resources */,
 				FA2356C31F0E53600053EE5F /* Main.storyboard in Resources */,
 				A2F267DD1FCF61B6001415F1 /* favourite_app_icon.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA2356CC1F0E53600053EE5F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA2ADD491FC1D8F40097415F /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA2356D71F0E53600053EE5F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA2ADD4A1FC1D8F50097415F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,96 +211,6 @@
 			showEnvVarsInLog = 0;
 		};
 		22434BE8E48342D653E0204C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		2C4CFE1224AA4B56B5374A36 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		323811D2C503053183F1FDAE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaxoumTests/Pods-TaxoumTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		360375D8B44A48D1683EE674 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaxoumUITests/Pods-TaxoumUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		458B16C4CBF6803294E9B046 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6ABD34E6EA8E287C9B03FE45 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaxoumTests/Pods-TaxoumTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		91CE65E4613946406AE67859 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -496,36 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA2356CA1F0E53600053EE5F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA2356D31F0E53600053EE5F /* TaxoumTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA2356D51F0E53600053EE5F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA2356DE1F0E53600053EE5F /* TaxoumUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FA2356D01F0E53600053EE5F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA2356B91F0E535F0053EE5F /* Taxoum */;
-			targetProxy = FA2356CF1F0E53600053EE5F /* PBXContainerItemProxy */;
-		};
-		FA2356DB1F0E53600053EE5F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA2356B91F0E535F0053EE5F /* Taxoum */;
-			targetProxy = FA2356DA1F0E53600053EE5F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA2356C11F0E53600053EE5F /* Main.storyboard */ = {
@@ -556,14 +288,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -603,14 +343,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -646,7 +394,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -661,61 +410,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		FA2356E61F0E53600053EE5F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BE312D9562819E49991076B /* Pods-TaxoumTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TaxoumTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = trashprods.TaxoumTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taxoum.app/Taxoum";
-			};
-			name = Debug;
-		};
-		FA2356E71F0E53600053EE5F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E71AC964C5E04FF90845ABE /* Pods-TaxoumTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = TaxoumTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = trashprods.TaxoumTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taxoum.app/Taxoum";
-			};
-			name = Release;
-		};
-		FA2356E91F0E53600053EE5F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BEA2E74EA4C23633265F181 /* Pods-TaxoumUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = TaxoumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = trashprods.TaxoumUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Taxoum;
-			};
-			name = Debug;
-		};
-		FA2356EA1F0E53600053EE5F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFDBF2EE4EDB4FC85B61A91B /* Pods-TaxoumUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = TaxoumUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = trashprods.TaxoumUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Taxoum;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -736,24 +432,6 @@
 			buildConfigurations = (
 				FA2356E31F0E53600053EE5F /* Debug */,
 				FA2356E41F0E53600053EE5F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA2356E51F0E53600053EE5F /* Build configuration list for PBXNativeTarget "TaxoumTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA2356E61F0E53600053EE5F /* Debug */,
-				FA2356E71F0E53600053EE5F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA2356E81F0E53600053EE5F /* Build configuration list for PBXNativeTarget "TaxoumUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA2356E91F0E53600053EE5F /* Debug */,
-				FA2356EA1F0E53600053EE5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

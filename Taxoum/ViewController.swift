@@ -191,7 +191,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         }
         
         if(TaxifarebyDist == 0 ) {
-            self.showDirection()
+            self.selectMyPositionAtDestination((Any).self)
         }
         print("Taxi fare by distance: ",TaxifarebyDist)
         print("Taxi fare by time: ",TaxifarebyTime)
@@ -210,12 +210,6 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
         //Requesting the routes
         Alamofire.request(url).responseJSON { response in
-            
-            //print(response.request as Any)  // original URL request
-            //print(response.response as Any) // HTTP URL response
-            //print(response.data as Any)     // server data
-            //print(response.result as Any)   // result of response serialization
-            
             let json = JSON(data: response.data!)
             let routes = json["routes"].arrayValue
             let distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
