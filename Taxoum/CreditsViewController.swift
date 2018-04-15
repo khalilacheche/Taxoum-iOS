@@ -19,6 +19,10 @@ class CreditsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func goBack(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DepartureDestinationVC")
+        self.present(vc!,animated: true)
+    }
+    
 
 }

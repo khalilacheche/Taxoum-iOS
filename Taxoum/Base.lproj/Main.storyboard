@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -160,50 +161,47 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMF-gF-Cs8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How do we aproximate your taxi fare ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-xB-EaW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do we aproximate your taxi fare ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-xB-EaW">
                                         <rect key="frame" x="8" y="71" width="334" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieY-b2-3ZA">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieY-b2-3ZA">
                                         <rect key="frame" x="19" y="97" width="344" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="SjO-G9-H5a"/>
+                                        </constraints>
                                         <string key="text">The taxi fare is regulated : 450 millimes of support, then 400 millimes per kilometer. There is also a countdown with time, low (30 or 60 millimes per minute, maybe).</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wanna help out ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-2J-YaI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wanna help out ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-2J-YaI">
                                         <rect key="frame" x="8" y="361" width="367" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-Ke-yP9">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-Ke-yP9">
                                         <rect key="frame" x="19" y="392" width="344" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Simply allow us to record every trip you make . We pledge that the information you provide will be kept secret and only used to improve our estimation algorithm</string>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRH-vC-6q0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRH-vC-6q0">
                                         <rect key="frame" x="112" y="498" width="127" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Click here to Allow"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where did we get this information " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-J9-JeM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where did we get this information " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-J9-JeM">
                                         <rect key="frame" x="8" y="205" width="291" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3y-HK-sDC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3y-HK-sDC">
                                         <rect key="frame" x="21" y="236" width="332" height="30"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="http://destination-tunis.fr/les-taxis-jaunes-en-tunisie"/>
@@ -211,10 +209,12 @@
                                             <action selector="openLink:" destination="CRm-UM-g9g" eventType="touchUpInside" id="NV3-3n-MUQ"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Got a better way to estimate taxi fare ? don't hesite to contact us at : amirbrahamm@gmail.com" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-1U-AVy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Got a better way to estimate taxi fare ? don't hesite to contact us at : amirbrahamm@gmail.com" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-1U-AVy">
                                         <rect key="frame" x="19" y="274" width="344" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="J8N-Jt-QUW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -222,29 +222,57 @@
                                         <rect key="frame" x="4" y="619" width="367" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="zhx-eq-W1h"/>
+                                            <constraint firstAttribute="height" constant="48" id="bEy-bI-aU0"/>
                                         </constraints>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-b7-aM1">
+                                        <rect key="frame" x="8" y="33" width="58" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Go Back"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="CRm-UM-g9g" eventType="touchUpInside" id="X2F-Nh-gsn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="o3U-eF-dHk" secondAttribute="bottom" id="gAn-o9-FZB"/>
-                                    <constraint firstAttribute="trailing" secondItem="o3U-eF-dHk" secondAttribute="trailing" constant="4" id="imt-98-fRq"/>
-                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="centerX" secondItem="qMF-gF-Cs8" secondAttribute="centerX" id="lvv-om-jkI"/>
-                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="centerX" secondItem="k3y-HK-sDC" secondAttribute="centerX" id="tGo-Rs-Wd1"/>
-                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="top" secondItem="qMF-gF-Cs8" secondAttribute="top" constant="619" id="wbB-21-WzQ"/>
-                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="leading" secondItem="qMF-gF-Cs8" secondAttribute="leading" constant="4" id="x1i-7F-bT1"/>
+                                    <constraint firstAttribute="bottom" secondItem="o3U-eF-dHk" secondAttribute="bottom" id="0h9-xG-pM8"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="leading" secondItem="qMF-gF-Cs8" secondAttribute="leading" constant="4" id="1Di-Hz-UXb"/>
+                                    <constraint firstItem="ieY-b2-3ZA" firstAttribute="leading" secondItem="qMF-gF-Cs8" secondAttribute="leading" constant="19" id="1rq-CT-kqs"/>
+                                    <constraint firstItem="k3y-HK-sDC" firstAttribute="centerX" secondItem="qMF-gF-Cs8" secondAttribute="centerX" id="3Oq-ZG-80u"/>
+                                    <constraint firstItem="Da7-Ke-yP9" firstAttribute="top" secondItem="VWl-2J-YaI" secondAttribute="bottom" constant="8" symbolic="YES" id="67e-B1-ziC"/>
+                                    <constraint firstItem="sEX-xB-EaW" firstAttribute="leading" secondItem="qMF-gF-Cs8" secondAttribute="leadingMargin" id="6EZ-GJ-tx1"/>
+                                    <constraint firstItem="ieY-b2-3ZA" firstAttribute="trailing" secondItem="Jdx-1U-AVy" secondAttribute="trailing" id="IxC-aO-2Cj"/>
+                                    <constraint firstItem="k3y-HK-sDC" firstAttribute="centerX" secondItem="o3U-eF-dHk" secondAttribute="centerX" id="O3R-0H-x3S"/>
+                                    <constraint firstItem="Jdx-1U-AVy" firstAttribute="centerX" secondItem="VWl-2J-YaI" secondAttribute="centerX" id="UMQ-fy-kFA"/>
+                                    <constraint firstItem="sEX-xB-EaW" firstAttribute="centerX" secondItem="iRH-vC-6q0" secondAttribute="centerX" id="WAr-ek-qWH"/>
+                                    <constraint firstItem="Jdx-1U-AVy" firstAttribute="top" secondItem="k3y-HK-sDC" secondAttribute="bottom" constant="8" symbolic="YES" id="Xan-4c-PtR"/>
+                                    <constraint firstItem="Jdx-1U-AVy" firstAttribute="trailing" secondItem="Da7-Ke-yP9" secondAttribute="trailing" id="Xpr-Al-HPC"/>
+                                    <constraint firstItem="VWl-2J-YaI" firstAttribute="top" secondItem="k3y-HK-sDC" secondAttribute="bottom" constant="95" id="cCV-bT-pM5"/>
+                                    <constraint firstItem="sEX-xB-EaW" firstAttribute="leading" secondItem="gsF-J9-JeM" secondAttribute="leading" id="e13-TC-rSc"/>
+                                    <constraint firstItem="ieY-b2-3ZA" firstAttribute="leading" secondItem="Jdx-1U-AVy" secondAttribute="leading" id="fdp-oc-CbS"/>
+                                    <constraint firstItem="ieY-b2-3ZA" firstAttribute="top" secondItem="sEX-xB-EaW" secondAttribute="bottom" constant="3" id="flf-WD-CoY"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="top" secondItem="Da7-Ke-yP9" secondAttribute="bottom" constant="99" id="gqy-0r-RdI"/>
+                                    <constraint firstItem="sEX-xB-EaW" firstAttribute="top" secondItem="qMF-gF-Cs8" secondAttribute="top" constant="71" id="o4b-EV-Lp7"/>
+                                    <constraint firstItem="Jdx-1U-AVy" firstAttribute="leading" secondItem="Da7-Ke-yP9" secondAttribute="leading" id="p3Z-Du-711"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="top" secondItem="iRH-vC-6q0" secondAttribute="bottom" constant="91" id="pag-bk-tuR"/>
+                                    <constraint firstItem="k3y-HK-sDC" firstAttribute="top" secondItem="ieY-b2-3ZA" secondAttribute="bottom" constant="11" id="sqf-SQ-ISD"/>
+                                    <constraint firstItem="k3y-HK-sDC" firstAttribute="top" secondItem="gsF-J9-JeM" secondAttribute="bottom" constant="8" symbolic="YES" id="vjR-e4-Lhi"/>
+                                    <constraint firstAttribute="trailing" secondItem="VWl-2J-YaI" secondAttribute="trailing" id="waP-yQ-4rb"/>
+                                    <constraint firstItem="gsF-J9-JeM" firstAttribute="leading" secondItem="VWl-2J-YaI" secondAttribute="leading" id="xKz-Wf-Ewe"/>
+                                    <constraint firstItem="iRH-vC-6q0" firstAttribute="top" secondItem="Jdx-1U-AVy" secondAttribute="bottom" constant="96" id="yJj-wd-4j1"/>
+                                    <constraint firstAttribute="trailing" secondItem="o3U-eF-dHk" secondAttribute="trailing" constant="4" id="z17-fx-1C8"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="leading" secondItem="Q1O-JS-mGC" secondAttribute="leading" id="dkA-Ei-j0f"/>
-                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="top" secondItem="Q1O-JS-mGC" secondAttribute="top" id="ijY-zA-aR5"/>
-                            <constraint firstItem="Syi-ca-Wcm" firstAttribute="top" secondItem="qMF-gF-Cs8" secondAttribute="bottom" id="qXb-E0-cvp"/>
-                            <constraint firstAttribute="trailing" secondItem="qMF-gF-Cs8" secondAttribute="trailing" id="uhC-XT-LxB"/>
+                            <constraint firstAttribute="trailing" secondItem="qMF-gF-Cs8" secondAttribute="trailing" id="M8h-Vk-NrQ"/>
+                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="bottom" secondItem="Syi-ca-Wcm" secondAttribute="top" id="gmK-sl-YEL"/>
+                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="leading" secondItem="Q1O-JS-mGC" secondAttribute="leading" id="k0H-fx-OsA"/>
+                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="top" secondItem="Q1O-JS-mGC" secondAttribute="top" id="oZB-1e-K6Y"/>
                         </constraints>
                     </view>
                 </viewController>

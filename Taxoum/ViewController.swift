@@ -246,7 +246,7 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         
         // Set message title, body, and icon. Here, we're overriding the default warning
         // image with an emoji character.
-        let iconText = ["🙌", "✅", "👌", "😶"].sm_random()!
+        let iconText = ["🙌", "✅", "👌"].sm_random()!
         view.configureContent(title: "Taxi Fare", body: String(finalTaxiFare) + " TND", iconText: iconText)
         
         var SwiftMessageConfig =  SwiftMessages.Config()
