@@ -9,10 +9,9 @@
 import UIKit
 import GoogleMaps
 import SwiftyJSON
-import GooglePlaces
 import GooglePlacesAPI
 import Alamofire
-
+import SwiftMessages
 enum Location {
     case startLocation
     case destinationLocation
@@ -20,7 +19,6 @@ enum Location {
 
 class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManagerDelegate {
     
-    @IBOutlet weak var TaxiFare: UILabel!
     @IBOutlet weak var googleMaps: GMSMapView!
     @IBOutlet weak var startLocation: UITextField!
     @IBOutlet weak var destinationLocation: UITextField!
@@ -172,6 +170,44 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         destinationLocation.text = PlaceName
         showDirection()
     }
+    func drawPath(startLocation: CLLocation, endLocation: CLLocation)
+    {
+        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
+        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+        
+        
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        //Requesting the routes
+        Alamofire.request(url).responseJSON { response in
+            
+            //print(response.request as Any)  // original URL request
+            //print(response.response as Any) // HTTP URL response
+            //print(response.data as Any)     // server data
+            //print(response.result as Any)   // result of response serialization
+            do {
+                let json = try JSON(data: response.data!)
+                let routes = json["routes"].arrayValue
+                let distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
+                let timeInSeconds = json["routes"][0]["legs"][0]["duration"]["value"].intValue
+                print(distanceinKM)
+                print(timeInSeconds)
+                self.CalculateTaxiFare(distanceinKM: distanceinKM, timeinSeconds: timeInSeconds)
+                // print route using Polyline
+                for route in routes
+                {
+                    let routeOverviewPolyline = route["overview_polyline"].dictionary
+                    let points = routeOverviewPolyline?["points"]?.stringValue
+                    let path = GMSPath.init(fromEncodedPath: points!)
+                    let polyline = GMSPolyline.init(path: path)
+                    polyline.strokeWidth = 4
+                    polyline.strokeColor = UIColor.cyan
+                    polyline.map = self.googleMaps
+                }
+            } catch let error as NSError {
+                // error
+            }
+        }
+    }
     
     func CalculateTaxiFare(distanceinKM: Int , timeinSeconds: Int){
         var TaxifarebyDist:Int=0
@@ -196,51 +232,31 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
         print("Taxi fare by distance: ",TaxifarebyDist)
         print("Taxi fare by time: ",TaxifarebyTime)
         let finalTaxiFare = (TaxifarebyTime  +  TaxifarebyDist ) / 2
-        print ("Final Taxi Fare  ",finalTaxiFare)
-        self.TaxiFare.text = "Taxi Fare:  " + String(finalTaxiFare) + " TND"
-    }
-    func drawPath(startLocation: CLLocation, endLocation: CLLocation)
-    {
-        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
-        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+        print ("Final Taxi Fare  ",finalTaxiFare)        
+        let view = MessageView.viewFromNib(layout: .centeredView)
         
-        print("start location ",startLocation.coordinate)
-        print("end location ",endLocation.coordinate)
-
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
-        //Requesting the routes
-        Alamofire.request(url).responseJSON { response in
-            let json = JSON(data: response.data!)
-            let routes = json["routes"].arrayValue
-            let distanceinKM = json["routes"][0]["legs"][0]["distance"]["value"].intValue
-            var bounds = GMSCoordinateBounds()
-            for marker in self.Markers
-            {
-                bounds = bounds.includingCoordinate(marker.position)
-            }
-            let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
-            self.googleMaps.animate(with: update)
-            self.googleMaps.animate(toLocation: CLLocationCoordinate2D(latitude: (startLocation.coordinate.latitude + endLocation.coordinate.latitude ) / 2 , longitude:  (startLocation.coordinate.longitude + endLocation.coordinate.longitude ) / 2  ))
-           // self.googleMaps.animate(toZoom: Float(distanceinKM/1000) )
-
-            let timeInSeconds = json["routes"][0]["legs"][0]["duration"]["value"].intValue
-            print(distanceinKM)
-            print(timeInSeconds)
-            self.CalculateTaxiFare(distanceinKM: distanceinKM, timeinSeconds: timeInSeconds)
-            // print route using Polyline
-            for route in routes
-            {
-                let routeOverviewPolyline = route["overview_polyline"].dictionary
-                let points = routeOverviewPolyline?["points"]?.stringValue
-                let path = GMSPath.init(fromEncodedPath: points!)
-                let polyline = GMSPolyline.init(path: path)
-                polyline.strokeWidth = 4
-                polyline.strokeColor =  self.hexStringToUIColor(hex: "#54a0ff")
-                polyline.map = self.googleMaps
-            }
-            
-        }
+        // Theme message elements with the warning style.
+        view.configureTheme(.success)
+        view.button?.setTitle("How ? ", for: .normal)
+        view.buttonTapHandler = {_ in self.credits()}
+       
+        // Add a drop shadow.
+        view.configureDropShadow()
+        
+        
+        // Set message title, body, and icon. Here, we're overriding the default warning
+        // image with an emoji character.
+        let iconText = ["🙌", "✅", "👌", "😶"].sm_random()!
+        view.configureContent(title: "Taxi Fare", body: String(finalTaxiFare) + " TND", iconText: iconText)
+        
+        var SwiftMessageConfig =  SwiftMessages.Config()
+        SwiftMessageConfig.duration = SwiftMessages.Duration.seconds(seconds: 5)
+        
+        
+        // Show the message.
+        SwiftMessages.show(config: SwiftMessageConfig, view: view)
     }
+  
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -296,6 +312,11 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
             createMarker(titleMarker: dtm,/* iconMarker: #imageLiteral(resourceName: "mapspin"),*/ latitude: locationEnd.coordinate.latitude, longitude: locationEnd.coordinate.longitude)
         }
 
+    }
+    
+    func credits () {
+       let vc = CreditsViewController()
+        self.present(vc,animated: true)
     }
     
 }

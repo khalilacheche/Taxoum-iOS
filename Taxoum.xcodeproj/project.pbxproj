@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7659F846DEB025D54BE67B77 /* Pods_Taxoum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */; };
+		A2664B6520837E2100EE6934 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2664B6420837E2100EE6934 /* CreditsViewController.swift */; };
 		A2B33F8E207BB6360003CBE2 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = A2B33F8D207BB6360003CBE2 /* mapStyle.json */; };
 		A2C111161F680546006DEB5E /* TaxiAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C111151F680546006DEB5E /* TaxiAnimation.json */; };
 		A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C111171F68059B006DEB5E /* HomeViewController.swift */; };
@@ -24,13 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DD9DE7069A3B888584C695C /* Pods-Taxoum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.debug.xcconfig"; sourceTree = "<group>"; };
-		4298A99EEFBC001AB674DA5B /* Pods-Taxoum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.release.xcconfig"; sourceTree = "<group>"; };
+		1F1DB0401B0E3C509E415AE1 /* Pods-Taxoum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.release.xcconfig"; sourceTree = "<group>"; };
+		A2664B6420837E2100EE6934 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		A2B33F8D207BB6360003CBE2 /* mapStyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		A2C111151F680546006DEB5E /* TaxiAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaxiAnimation.json; sourceTree = "<group>"; };
 		A2C111171F68059B006DEB5E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A2EE5A6A1FC2147A0098DD90 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A2F267DC1FCF61B6001415F1 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
+		B94AEAD4044F15C4D9C39EE9 /* Pods-Taxoum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxoum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum.debug.xcconfig"; sourceTree = "<group>"; };
 		EA50355B594E0968A10BC39E /* Pods_Taxoum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taxoum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2161581F7FDC480054D016 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		FA2356BA1F0E535F0053EE5F /* Taxoum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxoum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +69,8 @@
 		29A7175671C3C3D776AC5A41 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3DD9DE7069A3B888584C695C /* Pods-Taxoum.debug.xcconfig */,
-				4298A99EEFBC001AB674DA5B /* Pods-Taxoum.release.xcconfig */,
+				B94AEAD4044F15C4D9C39EE9 /* Pods-Taxoum.debug.xcconfig */,
+				1F1DB0401B0E3C509E415AE1 /* Pods-Taxoum.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -108,6 +110,7 @@
 				FA37532D1F7FF76100FD0756 /* A2B */,
 				A2EE5A6A1FC2147A0098DD90 /* RootViewController.swift */,
 				A2B33F8D207BB6360003CBE2 /* mapStyle.json */,
+				A2664B6420837E2100EE6934 /* CreditsViewController.swift */,
 			);
 			path = Taxoum;
 			sourceTree = "<group>";
@@ -201,9 +204,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -216,13 +224,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Taxoum-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED645F836AC99FA76A69BD10 /* [CP] Embed Pods Frameworks */ = {
@@ -231,9 +242,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Taxoum/Pods-Taxoum-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GooglePlacesAPI/GooglePlacesAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GooglePlacesAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,6 +274,7 @@
 				FA2161591F7FDC480054D016 /* testViewController.swift in Sources */,
 				FA2356C01F0E53600053EE5F /* ViewController.swift in Sources */,
 				FA6E97221F33F52300C506ED /* TableViewCell.swift in Sources */,
+				A2664B6520837E2100EE6934 /* CreditsViewController.swift in Sources */,
 				A2EE5A6B1FC2147A0098DD90 /* RootViewController.swift in Sources */,
 				A2C111181F68059B006DEB5E /* HomeViewController.swift in Sources */,
 				FA2356BE1F0E53600053EE5F /* AppDelegate.swift in Sources */,
@@ -385,7 +410,7 @@
 		};
 		FA2356E31F0E53600053EE5F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DD9DE7069A3B888584C695C /* Pods-Taxoum.debug.xcconfig */;
+			baseConfigurationReference = B94AEAD4044F15C4D9C39EE9 /* Pods-Taxoum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -395,13 +420,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FA2356E41F0E53600053EE5F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4298A99EEFBC001AB674DA5B /* Pods-Taxoum.release.xcconfig */;
+			baseConfigurationReference = 1F1DB0401B0E3C509E415AE1 /* Pods-Taxoum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -411,7 +436,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.trashprods.Taxoum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

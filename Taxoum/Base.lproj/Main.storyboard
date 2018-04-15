@@ -100,21 +100,14 @@
                                 <color key="backgroundColor" red="1" green="0.91832835847957639" blue="0.92491889472088007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you departing from ? " textAlignment="center" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="9C6-Iw-94a">
-                                <rect key="frame" x="40" y="21" width="300" height="100"/>
+                                <rect key="frame" x="40" y="40" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.9374464897260274" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyV-ra-XdZ">
-                                <rect key="frame" x="90" y="175" width="214" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.97718961083211853" green="1" blue="0.99587957110951941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aos-Ie-BAB">
-                                <rect key="frame" x="48" y="33" width="282" height="38"/>
+                                <rect key="frame" x="48" y="52" width="282" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="start">
                                     <color key="titleColor" red="0.99019607843137258" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,14 +118,14 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where we will go ? " textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" background="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="g9X-E2-0Ys">
-                                <rect key="frame" x="40" y="80" width="300" height="100"/>
+                                <rect key="frame" x="40" y="99" width="300" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.85332833904109584" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFT-p3-hTp">
-                                <rect key="frame" x="48" y="93" width="282" height="40"/>
+                                <rect key="frame" x="48" y="112" width="282" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="destination">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,7 +139,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="GUN-20-hl5"/>
                     <connections>
-                        <outlet property="TaxiFare" destination="kyV-ra-XdZ" id="XUO-7Y-4xm"/>
                         <outlet property="destinationLocation" destination="g9X-E2-0Ys" id="0zf-5O-aNv"/>
                         <outlet property="googleMaps" destination="gQp-Jy-R6s" id="OdJ-D0-91h"/>
                         <outlet property="startLocation" destination="9C6-Iw-94a" id="6N0-gg-06w"/>
@@ -160,6 +152,34 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1032.8" y="26.53673163418291"/>
+        </scene>
+        <!--Credits View Controller-->
+        <scene sceneID="IVL-oi-VM9">
+            <objects>
+                <viewController id="CRm-UM-g9g" customClass="CreditsViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7aW-K9-di6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Syi-ca-Wcm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q1O-JS-mGC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V82-YU-AzZ">
+                                <rect key="frame" x="0.0" y="52" width="375" height="615"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ege-K8-jyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040.8" y="767.76611694152928"/>
         </scene>
         <!--Custom Autocomplete-->
         <scene sceneID="udH-ir-K24">
@@ -255,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mrb-rA-8TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="36"/>
+            <point key="canvasLocation" x="2060" y="-162"/>
         </scene>
     </scenes>
     <resources>

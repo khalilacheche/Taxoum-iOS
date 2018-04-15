@@ -8,8 +8,8 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlacesAPI
 import GooglePlaces
-
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {

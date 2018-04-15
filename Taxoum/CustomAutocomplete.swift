@@ -8,8 +8,8 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
 import GooglePlacesAPI
+import GooglePlaces
 protocol CustomAutocompleteDelegate {
     func userDidSelectPlace(Cooridnate: CLLocationCoordinate2D,Name:String)
     func userDidSelectMyPosition()

@@ -9,9 +9,10 @@ target 'Taxoum' do
 
   source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'
-  pod 'GooglePlaces'
-  pod 'GooglePlacesAPI'
   pod 'SwiftyJSON'
   pod 'lottie-ios'
-
+  pod 'ObjectMapper'
+  pod 'GooglePlacesAPI'
+  pod 'SwiftMessages'
+  pod 'GooglePlaces'
 end
