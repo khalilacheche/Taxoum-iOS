@@ -66,14 +66,6 @@
                                 <color key="textColor" red="0.9890376783050403" green="0.99575188923917368" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Developed by :                             Amir Braham                                              Khali Achehce" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o3U-eF-dHk">
-                                <rect key="frame" x="77" y="580" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" red="0.97810985161052344" green="1" blue="0.96171044028598207" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92935770750045776" green="0.941131591796875" blue="0.94552236795425415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -156,7 +148,7 @@
         <!--Credits View Controller-->
         <scene sceneID="IVL-oi-VM9">
             <objects>
-                <viewController id="CRm-UM-g9g" customClass="CreditsViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Credits" id="CRm-UM-g9g" customClass="CreditsViewController" customModule="Taxoum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7aW-K9-di6"/>
                         <viewControllerLayoutGuide type="bottom" id="Syi-ca-Wcm"/>
@@ -165,16 +157,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V82-YU-AzZ">
-                                <rect key="frame" x="0.0" y="52" width="375" height="615"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMF-gF-Cs8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How do we aproximate your taxi fare ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-xB-EaW">
+                                        <rect key="frame" x="8" y="71" width="334" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieY-b2-3ZA">
+                                        <rect key="frame" x="19" y="97" width="344" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">The taxi fare is regulated : 450 millimes of support, then 400 millimes per kilometer. There is also a countdown with time, low (30 or 60 millimes per minute, maybe).</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wanna help out ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWl-2J-YaI">
+                                        <rect key="frame" x="8" y="361" width="367" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Da7-Ke-yP9">
+                                        <rect key="frame" x="19" y="392" width="344" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Simply allow us to record every trip you make . We pledge that the information you provide will be kept secret and only used to improve our estimation algorithm</string>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRH-vC-6q0">
+                                        <rect key="frame" x="112" y="498" width="127" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Click here to Allow"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where did we get this information " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-J9-JeM">
+                                        <rect key="frame" x="8" y="205" width="291" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3y-HK-sDC">
+                                        <rect key="frame" x="21" y="236" width="332" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="http://destination-tunis.fr/les-taxis-jaunes-en-tunisie"/>
+                                        <connections>
+                                            <action selector="openLink:" destination="CRm-UM-g9g" eventType="touchUpInside" id="NV3-3n-MUQ"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Got a better way to estimate taxi fare ? don't hesite to contact us at : amirbrahamm@gmail.com" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdx-1U-AVy">
+                                        <rect key="frame" x="19" y="274" width="344" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Developed by : Amir Braham &amp; Khali Acheche" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3U-eF-dHk">
+                                        <rect key="frame" x="4" y="619" width="367" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="zhx-eq-W1h"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="o3U-eF-dHk" secondAttribute="bottom" id="gAn-o9-FZB"/>
+                                    <constraint firstAttribute="trailing" secondItem="o3U-eF-dHk" secondAttribute="trailing" constant="4" id="imt-98-fRq"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="centerX" secondItem="qMF-gF-Cs8" secondAttribute="centerX" id="lvv-om-jkI"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="centerX" secondItem="k3y-HK-sDC" secondAttribute="centerX" id="tGo-Rs-Wd1"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="top" secondItem="qMF-gF-Cs8" secondAttribute="top" constant="619" id="wbB-21-WzQ"/>
+                                    <constraint firstItem="o3U-eF-dHk" firstAttribute="leading" secondItem="qMF-gF-Cs8" secondAttribute="leading" constant="4" id="x1i-7F-bT1"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="leading" secondItem="Q1O-JS-mGC" secondAttribute="leading" id="dkA-Ei-j0f"/>
+                            <constraint firstItem="qMF-gF-Cs8" firstAttribute="top" secondItem="Q1O-JS-mGC" secondAttribute="top" id="ijY-zA-aR5"/>
+                            <constraint firstItem="Syi-ca-Wcm" firstAttribute="top" secondItem="qMF-gF-Cs8" secondAttribute="bottom" id="qXb-E0-cvp"/>
+                            <constraint firstAttribute="trailing" secondItem="qMF-gF-Cs8" secondAttribute="trailing" id="uhC-XT-LxB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ege-K8-jyK" userLabel="First Responder" sceneMemberID="firstResponder"/>

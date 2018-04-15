@@ -315,8 +315,8 @@ class ViewController: UIViewController , GMSMapViewDelegate ,  CLLocationManager
     }
     
     func credits () {
-       let vc = CreditsViewController()
-        self.present(vc,animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Credits")
+        self.present(vc!,animated: true)
     }
     
 }

@@ -10,6 +10,10 @@ import UIKit
 
 class CreditsViewController: UIViewController {
 
+    @IBAction func openLink(_ sender: UIButton) {
+        UIApplication.shared.openURL(NSURL(string: "http://destination-tunis.fr/les-taxis-jaunes-en-tunisie")! as URL)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
